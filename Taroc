@@ -1,0 +1,46 @@
+echo "# Taroc" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/AIArtEchoes/Taroc.git
+git push -u origin main
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tarot Card Prediction</title>
+  </head>
+  <body>
+    <h1>Tarot Card Prediction</h1>
+    <p>Choose the number of cards you want to draw:</p>
+    <select id="cardNumber">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+    <button onclick="drawCards()">Draw Cards</button>
+    <br><br>
+    <p id="result"></p>
+    
+    <script>
+      function drawCards() {
+        var cardNumber = document.getElementById("cardNumber").value;
+        var tarotDeck = [
+          "The Fool", "The Magician", "The High Priestess", "The Empress",
+          "The Emperor", "The Hierophant", "The Lovers", "The Chariot",
+          "Strength", "The Hermit", "Wheel of Fortune", "Justice",
+          "The Hanged Man", "Death", "Temperance", "The Devil", "The Tower",
+          "The Star", "The Moon", "The Sun", "Judgement", "The World"
+        ];
+        var result = "";
+        for (var i = 0; i < cardNumber; i++) {
+          var randomIndex = Math.floor(Math.random() * tarotDeck.length);
+          result += tarotDeck[randomIndex] + "<br>";
+        }
+        document.getElementById("result").innerHTML = result;
+      }
+    </script>
+  </body>
+</html>
